@@ -1,0 +1,13 @@
+# @Author: Popov Gennadiy <dio>
+# @Date:   2016-12-07T13:56:41+03:00
+# @Email:  me@westtrade.tk
+# @Last modified by:   dio
+# @Last modified time: 2016-12-07T14:18:43+03:00
+
+version: '2'
+services:
+    teeworld-server:
+        build: ./
+        ports:
+            - 8303:8303/udp
+        #     - 8303/udp:8303/udp
