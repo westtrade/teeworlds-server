@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:latest
 
 MAINTAINER Popov Gennadiy <me@westtrade.tk>
 
