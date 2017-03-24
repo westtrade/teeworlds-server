@@ -8,7 +8,7 @@ Run server with default configuration:
 
 ```bash
 
-$ docker run -d -p 8303:8303/udp westtrade/docker-teeworlds-alpine 
+$ docker run -d -p 8303:8303/udp westtrade/teeworlds-server
 
 ```
 
@@ -19,7 +19,7 @@ You can start server image with custom configuration and logs access by adding a
 
 ```bash
 
-$ docker run -d -p 8303:8303/udp westtrade/docker-teeworlds-alpine \
+$ docker run -d -p 8303:8303/udp westtrade/teeworlds-server \
  -v ./my-teeworlds-conf:/opt/teeworlds/exposed
 
 ```
