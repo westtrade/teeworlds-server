@@ -7,7 +7,8 @@
 version: '2'
 services:
     teeworld-server:
-        build: ./
+        build: westtrade/teeworlds-server
+        volumes:
+            - ./my-teeworlds-conf:/opt/teeworlds/exposed
         ports:
             - 8303:8303/udp
-        #     - 8303/udp:8303/udp
