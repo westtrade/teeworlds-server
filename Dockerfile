@@ -12,35 +12,35 @@ LABEL com.westtrade.build-date=$BUILD_DATE \
 	com.westtrade.vcs-ref=$VCS_REF \
 	com.westtrade.vcs-type="Git" \
 	com.westtrade.vcs-url="https://github.com/westtrade/docker-teeworlds-server"
-	
+
+WORKDIR /opt/teeworlds
 
 RUN apk update && \
-	apk add --virtual .build-dependencies --no-cache --update git wget tar make gcc alpine-sdk \
+	apk --update add --no-cache --virtual .build-dependencies git wget tar make gcc alpine-sdk \
 	curl readline readline-dev freetype-dev sdl2 sdl2-dev \
 	freeglut freeglut-dev glew-dev glm-dev \
-	build-base python-dev
-
-RUN cd /tmp && \
+	python-dev && \
+	apk --update --no-cache  add build-base && \
+ 	cd /tmp && \
 	curl -R -O http://www.lua.org/ftp/lua-5.3.3.tar.gz && \
 	tar zxf lua-5.3.3.tar.gz && \
 	cd lua-5.3.3 && \
 	make linux && \
-	make install
-
-RUN cd /tmp && \
+	make install && \
+	cd /tmp && \
 	wget https://github.com/matricks/bam/archive/v0.5.0.tar.gz && \
 	tar -zxvf v0.5.0.tar.gz && \
 	cd bam-0.5.0 && ./make_unix.sh && \
-	ln -s "$PWD/bam" /usr/bin
-
-WORKDIR /opt/teeworlds
-
-RUN git clone https://github.com/teeworlds/teeworlds ./src && \
-	git clone https://github.com/teeworlds/teeworlds-maps ./maps
-
-RUN cd ./src && bam config && bam && ln -s "$PWD/build/x86_64/debug/teeworlds_srv" /usr/bin
-
-RUN rm -rvf /tmp/*
+	ln -s "$PWD/bam" /usr/bin && cd /opt/teeworlds && \
+	git clone https://github.com/teeworlds/teeworlds ./src && \
+	git clone https://github.com/teeworlds/teeworlds-maps ./maps && \
+	cd ./src && bam config && bam && cd ../ && \
+	mv ./src/build/x86_64/debug ./game && \
+	rm -rvf ./src && \
+	ln -s "$PWD/game/teeworlds_srv" /usr/bin && \
+	rm -rvf /tmp/* && \
+	apk del .build-dependencies build-base && \
+	apk --update add --no-cache libstdc++
 
 
 COPY server-sample.cfg ./server-sample.cfg
