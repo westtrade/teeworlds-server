@@ -43,9 +43,9 @@ RUN apk update && \
 	apk --update add --no-cache libstdc++
 
 
-COPY server-sample.cfg ./server-sample.cfg
-COPY storage-sample.cfg storage.cfg
-COPY entrypoint.sh ./entrypoint.sh
+COPY ./server-sample.cfg ./server-sample.cfg
+COPY ./storage-sample.cfg storage.cfg
+COPY ./entrypoint.sh ./entrypoint.sh
 
 RUN mkdir ./data
 

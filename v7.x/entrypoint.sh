@@ -1,4 +1,4 @@
-#/usr/bin/env sh 
+#/usr/bin/env sh
 
 set -e
 EXPOSED_PATH='/opt/teeworlds/exposed'
@@ -14,6 +14,3 @@ if [ ! -f "$EXPOSED_PATH/serverconfig.cfg" ]; then
 fi
 
 exec teeworlds_srv -f $EXPOSED_PATH/server.cfg
-
-
-
