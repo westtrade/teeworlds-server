@@ -2,12 +2,12 @@
 # @Date:   2016-12-07T13:56:41+03:00
 # @Email:  me@westtrade.tk
 # @Last modified by:   dio
-# @Last modified time: 2016-12-07T14:18:43+03:00
+# @Last modified time: 2017-03-30T18:53:10+03:00
 
 version: '2'
 services:
     teeworld-server:
-        build: westtrade/teeworlds-server
+        image: westtrade/teeworlds-server
         volumes:
             - ./my-teeworlds-conf:/opt/teeworlds/exposed
         ports:
