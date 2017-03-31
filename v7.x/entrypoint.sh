@@ -9,7 +9,7 @@ if [ ! -f "$EXPOSED_PATH/server.log" ]; then
 	touch $EXPOSED_PATH/server.log
 fi
 
-if [ ! -f "$EXPOSED_PATH/serverconfig.cfg" ]; then
+if [ ! -f "$EXPOSED_PATH/server.cfg" ]; then
 	cp ./server-sample.cfg $EXPOSED_PATH/server.cfg
 fi
 
