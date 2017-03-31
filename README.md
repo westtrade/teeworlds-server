@@ -12,15 +12,15 @@ $ docker run -d -p 8303:8303/udp westtrade/teeworlds-server
 
 ```
 
-Runned server with default configuration appear on your LAN as Teeworlds Server on port 8303. The default password for remote console access is **rconadmin**.
-
+Runned server with default configuration appear on your LAN as Teeworlds Server
+on port 8303. The default password for remote console access is **rconadmin**.
+ls
 
 You can start server image with custom configuration and logs access by adding a volume
 
 ```bash
 
-$ docker run -d -p 8303:8303/udp westtrade/teeworlds-server \
- -v ./my-teeworlds-conf:/opt/teeworlds/exposed
+$ docker run -d -p 8303:8303/udp -v `pwd`/conf:/opt/teeworlds/exposed westtrade/teeworlds-server
 
 ```
 
