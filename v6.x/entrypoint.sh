@@ -10,7 +10,10 @@ if [ ! -f "$EXPOSED_PATH/server.log" ]; then
 fi
 
 if [ ! -f "$EXPOSED_PATH/server.cfg" ]; then
+	TEEWORLDS_SERVER_NAME='Teeworlds [dckr-'$(pwgen)']'
 	cp ./server-sample.cfg $EXPOSED_PATH/server.cfg
+	echo 'sv_name ' $TEEWORLDS_SERVER_NAME >> $EXPOSED_PATH/server.cfg
+	echo $TEEWORLDS_SERVER_NAME' server started!'
 fi
 
 exec teeworlds_srv_d -f $EXPOSED_PATH/server.cfg

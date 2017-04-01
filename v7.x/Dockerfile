@@ -42,6 +42,7 @@ RUN apk update && \
 	apk del .build-dependencies build-base && \
 	apk --update add --no-cache libstdc++
 
+RUN apk add pwgen
 
 COPY ./server-sample.cfg ./server-sample.cfg
 COPY ./storage-sample.cfg storage.cfg
