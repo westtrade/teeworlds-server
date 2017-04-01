@@ -4,7 +4,7 @@
 
 It is a tiny and simple docker image of Teeworlds server, based on Alpine linux.
 
-![Start Teeworlds server](/assets/install.gif)
+![Start Teeworlds server](https://cdn.rawgit.com/westtrade/teeworlds-server/b211bee6/assets/install.gif)
 
 Run server with default configuration:
 
