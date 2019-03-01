@@ -1,7 +1,7 @@
 #/usr/bin/env sh
 
 set -e
-EXPOSED_PATH='/opt/teeworlds/exposed'
+EXPOSED_PATH='./exposed'
 
 mkdir -p $EXPOSED_PATH
 
